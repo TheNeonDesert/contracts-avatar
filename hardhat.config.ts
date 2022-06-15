@@ -33,6 +33,12 @@ const config: HardhatUserConfig = {
     hardhat: {
       chainId: 31337,
     },
+    rinkeby: {
+      url: `https://eth-rinkeby.alchemyapi.io/v2/${process.env.RINKEBY_ALCHEMY_API_KEY}`,
+      accounts: [
+        process.env.RINKEBY_PRIVATE_KEY ? process.env.RINKEBY_PRIVATE_KEY : "",
+      ],
+    },
     harmonyTestnet: {
       url: `https://api.s0.b.hmny.io`,
       accounts: [
