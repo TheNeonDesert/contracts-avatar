@@ -45,6 +45,12 @@ const config: HardhatUserConfig = {
         process.env.HARMONY_PRIVATE_KEY ? process.env.HARMONY_PRIVATE_KEY : "",
       ],
     },
+    harmonyDevnet: {
+      url: `https://api.s0.ps.hmny.io`,
+      accounts: [
+        process.env.HARMONY_PRIVATE_KEY ? process.env.HARMONY_PRIVATE_KEY : "",
+      ],
+    },
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,

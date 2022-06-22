@@ -3,7 +3,8 @@
   "scripts": {
     "deploy:local": "npx hardhat run scripts/deploy.ts --network localhost",
     "deploy:rinkeby": "npx hardhat run scripts/deploy.ts --network rinkeby",
-    "deploy:harmonyTestnet": "npx hardhat run scripts/deploy.ts --network harmonyTestnet"
+    "deploy:harmonyTestnet": "npx hardhat run scripts/deploy.ts --network harmonyTestnet",
+    "deploy:harmonyDevnet": "npx hardhat run scripts/deploy.ts --network harmonyDevnet"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.6",
