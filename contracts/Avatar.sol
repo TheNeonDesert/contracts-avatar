@@ -11,6 +11,7 @@ contract Avatar is ERC721Enumerable {
     uint256 private tokenIdCounter = 0;
 
     struct AvatarDetails {
+        uint256 tokenId;
         string name;
     }
 
@@ -22,13 +23,18 @@ contract Avatar is ERC721Enumerable {
     }
 
     function generateCharacter(string memory name) public {
-        console.log("generateCharacter:");
-        // neon.balanceOf(msg.sender)
-        console.log("neon.balanceOf(msg.sender):", neon.balanceOf(msg.sender));
         bool success = neon.transferFrom(msg.sender, address(this), 1 ether);
         require(success, "Insufficient Funds: Requires 1 Neon");
+        avatarDetails[tokenIdCounter] = AvatarDetails(tokenIdCounter, name);
         _mint(msg.sender, tokenIdCounter);
-        avatarDetails[tokenIdCounter] = AvatarDetails(name);
         tokenIdCounter++;
+    }
+
+    function getAvatarDetails(uint256 tokenId)
+        public
+        view
+        returns (AvatarDetails memory)
+    {
+        return avatarDetails[tokenId];
     }
 }
