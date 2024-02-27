@@ -24,34 +24,43 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 
 const config: HardhatUserConfig = {
   solidity: "0.8.1",
+  defaultNetwork: "hardhat",
   networks: {
-    ropsten: {
-      url: process.env.ROPSTEN_URL || "",
-      accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
-    },
     hardhat: {
-      chainId: 31337,
+      // Configuration specific to the Hardhat network
+      chainId: 1337, // Default chain ID for Hardhat network
+      // You can specify additional Hardhat network config here
     },
-    rinkeby: {
-      url: `https://eth-rinkeby.alchemyapi.io/v2/${process.env.RINKEBY_ALCHEMY_API_KEY}`,
-      accounts: [
-        process.env.RINKEBY_PRIVATE_KEY ? process.env.RINKEBY_PRIVATE_KEY : "",
-      ],
-    },
-    harmonyTestnet: {
-      url: `https://api.s0.b.hmny.io`,
-      accounts: [
-        process.env.HARMONY_PRIVATE_KEY ? process.env.HARMONY_PRIVATE_KEY : "",
-      ],
-    },
-    harmonyDevnet: {
-      url: `https://api.s0.ps.hmny.io`,
-      accounts: [
-        process.env.HARMONY_PRIVATE_KEY ? process.env.HARMONY_PRIVATE_KEY : "",
-      ],
-    },
+    // Define other networks here as needed
   },
+  // networks: {
+  //   ropsten: {
+  //     url: process.env.ROPSTEN_URL || "",
+  //     accounts:
+  //       process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+  //   },
+  //   hardhat: {
+  //     chainId: 31337,
+  //   },
+  //   rinkeby: {
+  //     url: `https://eth-rinkeby.alchemyapi.io/v2/${process.env.RINKEBY_ALCHEMY_API_KEY}`,
+  //     accounts: [
+  //       process.env.RINKEBY_PRIVATE_KEY ? process.env.RINKEBY_PRIVATE_KEY : "",
+  //     ],
+  //   },
+  //   harmonyTestnet: {
+  //     url: `https://api.s0.b.hmny.io`,
+  //     accounts: [
+  //       process.env.HARMONY_PRIVATE_KEY ? process.env.HARMONY_PRIVATE_KEY : "",
+  //     ],
+  //   },
+  //   harmonyDevnet: {
+  //     url: `https://api.s0.ps.hmny.io`,
+  //     accounts: [
+  //       process.env.HARMONY_PRIVATE_KEY ? process.env.HARMONY_PRIVATE_KEY : "",
+  //     ],
+  //   },
+  // },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
     currency: "USD",

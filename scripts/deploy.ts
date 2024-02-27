@@ -21,6 +21,8 @@ async function main() {
     await avatar.deployed();
 
     console.log("Avatar deployed to:", avatar.address);
+  } else {
+    console.log("NEON_TOKEN_ADDRESS is not set in .env file");
   }
 }
 
