@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 contract Avatar is ERC721Enumerable {
     IERC20 private neon;
 
-    uint256 private tokenIdCounter = 0;
+    uint256 private tokenIdCounter = 1;
 
     struct AvatarDetails {
         uint256 tokenId;
@@ -30,11 +30,7 @@ contract Avatar is ERC721Enumerable {
         tokenIdCounter++;
     }
 
-    function getAvatarDetails(uint256 tokenId)
-        public
-        view
-        returns (AvatarDetails memory)
-    {
+    function getAvatarDetails (uint256 tokenId) external view returns (AvatarDetails memory) {
         return avatarDetails[tokenId];
     }
 }
